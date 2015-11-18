@@ -11,7 +11,7 @@ LIBRARY = libstdio.a
 SOURCES = $(wildcard *.c)
 OBJECTS = $(subst .c,.o,${SOURCES})
 
-TESTSRC = hello.s
+TESTSRC = test.s
 TESTOBJ = $(subst .s,.o,${TESTSRC})
 TESTBIN = $(subst .s,.com,${TESTSRC})
 
