@@ -6,7 +6,7 @@ int putchar(int ch)
 	(
 		"mov $0x0E, %%ah\n"
 		"int $0x10\n"
-		:: "a"(ch), "b"(0x0007)
+		:: "a"(ch), "b"(__video_attributes)
 	);
 
 	return ch;
