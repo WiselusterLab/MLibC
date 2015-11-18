@@ -1,6 +1,9 @@
 AR = ar
 CC = gcc
+CLAGS = -I${INCLUDE} -m16 -O3
 DOSBOX = dosbox
+LD = gcc
+LDFLAGS = -nostdlib -Wl,-Ttext,0x0100,--oformat=binary
 RANLIB = ranlib
 
 INCLUDE = ../include
@@ -9,6 +12,7 @@ SOURCES = $(wildcard *.c)
 OBJECTS = $(subst .c,.o,${SOURCES})
 
 TESTSRC = hello.s
+TESTOBJ = $(subst .s,.o,${TESTSRC})
 TESTBIN = $(subst .s,.com,${TESTSRC})
 
 .PHONY: all clean test
@@ -20,7 +24,8 @@ clean:
 	rm -rf ${LIBRARY} ${OBJECTS} ${TESTBIN}
 
 test:
-	${CC} -nostdlib -m16 -O3 ${TESTSRC} -Wl,-Ttext,0x0100,--oformat=binary,${LIBRARY} -o ${TESTBIN}
+	${CC} ${CFLAGS} -c ${TESTSRC}
+	${LD} ${LDFLAGS} ${TESTOBJ} ${LIBRARY} -o ${TESTBIN}
 	${DOSBOX} ${TESTBIN}
 
 ${LIBRARY}: ${OBJECTS}
@@ -28,4 +33,4 @@ ${LIBRARY}: ${OBJECTS}
 	${RANLIB} $@
 
 ${OBJECTS}: ${SOURCES}
-	${CC} -I${INCLUDE} -m16 -O3 -c $^
+	${CC} ${CFLAGS} -c $^
