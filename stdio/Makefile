@@ -1,12 +1,12 @@
 AR = ar
 CC = gcc
 CFLAGS = -nostdinc -I${INCLUDE} -m16 -O3
+INCLUDE = $(shell pwd)/../include
 DOSBOX = dosbox
 LD = gcc
 LDFLAGS = -nostdlib -Wl,-Ttext,0x0100,--oformat=binary
 RANLIB = ranlib
 
-INCLUDE = ../include
 LIBRARY = libstdio.a
 SOURCES = $(wildcard *.c)
 OBJECTS = $(subst .c,.o,${SOURCES})
