@@ -1,16 +1,28 @@
 AR = ar
 CC = gcc
+INCLUDE = $(shell pwd)/include
+CLAGS = -nostdinc -I${INCLUDE} -m16 -O3
 DOSBOX = dosbox
+LD = gcc
+LDFLAGS = -nostdlib -Wl,-Ttext,0x0100,--oformat=binary
 RANLIB = ranlib
-SUBDIR = stdio
 
 .PHONY: all clean test
 
 all: 
-	make -C ${SUBDIR} $@
+	for dir in ${SUBDIR}\
+	do\
+		make -C $${dir} $@\
+	done
 
 clean:
-	make -C ${SUBDIR} $@
+	for dir in ${SUBDIR}\
+	do\
+		make -C $${dir} $@\
+	done
 
 test: 
-	make -C ${SUBDIR} $@
+	for dir in ${SUBDIR}\
+	do\
+		make -C $${dir} $@\
+	done
