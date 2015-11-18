@@ -8,6 +8,6 @@ void gotoxy(int x, int y)
 		"mov %1, %%dh\n"
 		"mov %2, %%dl\n"
 		"int $0x10\n"
-		:: "b"(__video_attributes) "m"(x), "m"(y)
+		:: "b"(__video_attributes), "m"(x), "m"(y)
 	);
 }
