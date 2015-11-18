@@ -35,7 +35,7 @@ ${LIBRARY}: ${OBJECTS}
 
 ${OBJECTS}: ${SOURCES}
 	${CC} ${CFLAGS} -c $^
-	for file in $^;\
+	for file in $@;\
 	do\
 		${OBJCOPY} -R.eh_frame $${file};\
 		${OBJCOPY} -R.comment $${file};\
