@@ -4,7 +4,7 @@ INCLUDE = $(shell pwd)/include
 CFLAGS = -nostdinc -I${INCLUDE} -m16 -O3
 DOSBOX = dosbox
 LD = gcc
-LDFLAGS = -nostdlib -Wl,-Ttext,0x0100,--oformat=binary
+LDFLAGS = -nostdlib -m16 -Wl,-Ttext,0x0100,--oformat=binary
 RANLIB = ranlib
 SUBDIR = stdio
 
