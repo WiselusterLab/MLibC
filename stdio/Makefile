@@ -5,6 +5,7 @@ INCLUDE = $(shell pwd)/../include
 DOSBOX = dosbox
 LD = gcc
 LDFLAGS = -nostdlib -m16 -Wl,-Ttext,0x0100,--oformat=binary
+OBJCOPY = objcopy
 RANLIB = ranlib
 
 LIBRARY = libstdio.a
@@ -34,3 +35,8 @@ ${LIBRARY}: ${OBJECTS}
 
 ${OBJECTS}: ${SOURCES}
 	${CC} ${CFLAGS} -c $^
+	for file in $^;\
+	do\
+		${OBJCOPY} -R.eh_frame $${file};\
+		${OBJCOPY} -R.comment $${file};\
+	done
