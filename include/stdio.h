@@ -1,9 +1,15 @@
 #ifndef _MLIBC_STDIO_H_INCLUDED_
 #define _MLIBC_STDIO_H_INCLUDED_ 1
 
-#include <mlibc.h>
+#include <stddef.h>
 
-__C int putchar(int ch);
-__C int puts(const char *str);
+__BEGIN_DECLS
+
+extern int putchar(int ch);
+extern int puts(const char *str);
+
+__END_DECLS
+
+extern word __video_attribute;
 
 #endif /* _MLIBC_STDIO_H_INCLUDED_ */
