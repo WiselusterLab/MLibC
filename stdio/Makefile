@@ -21,7 +21,7 @@ all: ${LIBRARY}
 	
 
 clean:
-	rm -rf ${LIBRARY} ${OBJECTS} ${TESTBIN}
+	rm -rf ${LIBRARY} ${OBJECTS} ${TESTOBJ} ${TESTBIN}
 
 test:
 	${CC} ${CFLAGS} -c ${TESTSRC}
