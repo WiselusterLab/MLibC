@@ -1,7 +1,7 @@
 AR = ar
 CC = gcc
 INCLUDE = $(shell pwd)/include
-CLAGS = -nostdinc -I${INCLUDE} -m16 -O3
+CFLAGS = -nostdinc -I${INCLUDE} -m16 -O3
 DOSBOX = dosbox
 LD = gcc
 LDFLAGS = -nostdlib -Wl,-Ttext,0x0100,--oformat=binary
