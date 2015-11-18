@@ -24,7 +24,7 @@ test:
 	${DOSBOX} ${TESTBIN}
 
 ${LIBRARY}: ${OBJECTS}
-	${AR} rc $@ $^
+	${AR} rcu $@ $^
 	${RANLIB} $@
 
 ${OBJECTS}: ${SOURCES}
