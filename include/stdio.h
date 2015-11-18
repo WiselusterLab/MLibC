@@ -7,9 +7,11 @@ __BEGIN_DECLS
 
 extern int putchar(int ch);
 extern int puts(const char *str);
+extern void clrscr(void);
+extern void gotoxy(int x, int y);
 
 __END_DECLS
 
-extern word __video_attribute;
+extern word __video_attributes;
 
 #endif /* _MLIBC_STDIO_H_INCLUDED_ */
