@@ -1,3 +1,5 @@
+SUBDIR = $(shell ls -d)
+
 .PHONY: all clean test
 
 all: 
