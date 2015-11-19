@@ -29,7 +29,7 @@ extern word __video_attributes __MERGE;
 #define BIOS_MAGNETA 0x05
 #define BIOS_BROWN 0x06
 #define BIOS_LIGHT_GRAY 0x07
-#define BIOS_DARK_GRAP 0x08
+#define BIOS_DARK_GRAY 0x08
 #define BIOS_LIGHT_BLUE 0x09
 #define BIOS_LIGHT_GREEN 0x0A
 #define BIOS_LIGHT_CYAN 0x0B
