@@ -2,7 +2,7 @@
 
 int puts(const char *str)
 {
-	auto int i = 0;
+	auto volatile int i = 0;
 
 	while (str[i])
 		putchar(str[i++]);
