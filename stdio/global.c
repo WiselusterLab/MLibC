@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-word __video_attributes = 0x0007;
+word __video_attributes = BIOS_COLOR_ORIGINAL;
