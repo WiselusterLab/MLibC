@@ -12,6 +12,6 @@ extern void gotoxy(int x, int y);
 
 __END_DECLS
 
-extern word __video_attributes;
+extern word __video_attributes __attribute__((section ".text"));
 
 #endif /* _MLIBC_STDIO_H_INCLUDED_ */
