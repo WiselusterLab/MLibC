@@ -6,7 +6,6 @@ void clrscr(void)
 	(
 		"xchg %%bl, %%bh\n"
 		"int $0x10\n"
-		"xchg %%bl, %%bh\n"
 		:: "a"(0x0600), "b"(__video_attributes), "c"(0x0000), "d"(0x1950)
 	);
 
