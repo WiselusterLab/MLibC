@@ -1,4 +1,4 @@
-SUBDIR = $(shell ls -d)
+SUBDIR = $(shell ls -F | grep /$$)
 
 .PHONY: all clean test
 
