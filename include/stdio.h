@@ -20,7 +20,7 @@ __END_DECLS
 extern word __video_attributes __MERGE;
 
 /* BIOS color attributes */
-#define BIOS_COLOR(fore, back) ((fore) << 8 | back)
+#define BIOS_COLOR(fore, back) ((fore) | ((back) << 8))
 #define BIOS_COLOR_ORIGINAL BIOS_COLOR(BIOS_LIGHT_GRAY, BIOS_BLACK)
 #define BIOS_BLACK 0x00
 #define BIOS_BLUE 0x01
