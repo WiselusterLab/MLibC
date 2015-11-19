@@ -6,7 +6,7 @@ int putchar(int ch)
 	(
 		"push %%ebp\n"
 		"lea %4, %%ebp\n"
-		"sub $4, %%ebp\n"
+		"add $4, %%ebp\n"
 		"int $0x10\n"
 		"pop %%ebp\n"
 		:: "a"(0x1301), "b"(__video_attributes), "c"(0x0001), "d"(getxy()), "m"(ch)
