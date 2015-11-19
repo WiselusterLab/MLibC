@@ -1,4 +1,4 @@
-__asm__ __volatile__
+__asm__
 (
 	".text\n"
 	"__video_attribute:\n"
