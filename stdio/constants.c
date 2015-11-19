@@ -1,3 +1,6 @@
-#include <stdio.h>
-
-word __video_attributes = 0x0007;
+__asm__ __volatile__
+(
+	".text\n"
+	"__video_attribute:\n"
+	"	.word 0x0007\n"
+).
