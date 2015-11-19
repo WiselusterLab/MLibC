@@ -6,9 +6,10 @@ dword getxy(void)
 
 	__asm__ __volatile__
 	(
+		"mov $0x03, %%ah\n"
 		"int $0x10\n"
 		: "=d"(pos)
-		: "a"(0x0300), "b"(__video_attributes)
+		: "b"(__video_attributes)
 	);
 
 	return pos;
