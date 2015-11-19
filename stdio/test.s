@@ -4,6 +4,9 @@
 _start:
 	pushl $10
 	pushl $10
+	call gotoxy
+	add $8, %esp
+
 	pushl $msg
 	call puts
 	add $4, %esp
