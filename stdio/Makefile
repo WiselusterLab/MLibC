@@ -1,14 +1,15 @@
 AR = ar
 CC = gcc
 CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-INCLUDE = $(shell pwd)/../include
 DOSBOX = dosbox
-LD = gcc
+INCLUDE = ${PWD}/../include
+LD = ${CC}
 LDFLAGS = -nostdlib -m16 -Wl,-Ttext,0x0100,--oformat=binary
 OBJCOPY = objcopy
 RANLIB = ranlib
+PWD = $(shell pwd)
 
-LIBRARY = libstdio.a
+LIBRARY = lib$(shell basename ${PWD}).a
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
