@@ -5,11 +5,14 @@
 
 __BEGIN_DECLS
 
+/* Standard C I/O Functions */
 extern int putchar(int ch);
 extern int puts(const char *str);
+
+/* Non-Standard C I/O Functions */
 extern void clrscr(void);
-extern void gotoxy(dword x, dword y);
 extern dword getxy(void);
+extern void gotoxy(dword x, dword y);
 
 __END_DECLS
 
