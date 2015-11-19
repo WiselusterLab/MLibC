@@ -4,9 +4,9 @@ int putchar(int ch)
 {
 	__asm__ __volatile__
 	(
-		"mov $0x0E, %%ah\n"
+		"mov $0x09, %%ah\n"
 		"int $0x10\n"
-		:: "a"(ch), "b"(__video_attributes)
+		:: "a"(ch), "b"(__video_attributes), "c"(0x0001)
 	);
 
 	return ch;
