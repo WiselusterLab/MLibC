@@ -2,7 +2,7 @@
 
 int puts(const char *str)
 {
-	int i = 0;
+	register int i __asm__ ("%edx") = 0;
 
 	while (str[i])
 		putchar(str[i++]);
