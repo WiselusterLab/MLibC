@@ -9,6 +9,7 @@ _start:
 	call gotoxy
 	add $8, %esp
 
+	movb $0x1F, __video_attributes
 	pushl $msg
 	call puts
 	add $4, %esp
