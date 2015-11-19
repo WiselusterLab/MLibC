@@ -21,6 +21,8 @@
 
 #endif /* __cplusplus */
 
+#define __GLOBAL __attribute__((section(".text")))
+
 typedef unsigned char byte;
 typedef unsigned short word;
 typedef unsigned int dword;
