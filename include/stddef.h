@@ -21,7 +21,7 @@
 
 #endif /* __cplusplus */
 
-#define __GLOBAL __attribute__((section(".text")))
+#define __MERGE __attribute__((section(".text")))
 
 typedef unsigned char byte;
 typedef unsigned short word;
