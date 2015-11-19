@@ -1,6 +1,6 @@
 AR = ar
 CC = gcc
-CFLAGS = -nostdinc -I${INCLUDE} -m16 -O3
+CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
 INCLUDE = $(shell pwd)/../include
 DOSBOX = dosbox
 LD = gcc
