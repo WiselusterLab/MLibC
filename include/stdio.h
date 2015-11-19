@@ -8,7 +8,8 @@ __BEGIN_DECLS
 extern int putchar(int ch);
 extern int puts(const char *str);
 extern void clrscr(void);
-extern void gotoxy(int x, int y);
+extern void gotoxy(dword x, dword y);
+extern dword getxy(void);
 
 __END_DECLS
 
