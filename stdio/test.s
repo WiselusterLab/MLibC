@@ -2,6 +2,8 @@
 	.global _start
 
 _start:
+	call clrscr
+
 	pushl $10
 	pushl $10
 	call gotoxy
