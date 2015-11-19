@@ -10,11 +10,10 @@ int putchar(int ch)
 	__asm__ __volatile__
 	(
 		"push %%ebp\n"
-		"mov %3, %%edx\n"
 		"lea %4, %%ebp\n"
 		"int $0x10\n"
-		"pop %%edx\n"
 		"pop %%ebp\n"
+		"pop %%edx\n"
 		:: "a"(0x1301), "b"(__video_attributes), "c"(0x0001), "d"(getxy()), "m"(ch)
 	);
 
