@@ -1,5 +1,5 @@
 v0.0.1.1: 11/19/2015
-* Implemented clrscr() and gotoxy()
+* Implemented clrscr(), getxy() and gotoxy()
 * Added video attribute support
 * Fixed putchar()
 
