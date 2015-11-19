@@ -10,7 +10,7 @@ RANLIB = ranlib
 
 LIBRARY = libstdio.a
 SOURCES = $(wildcard *.c)
-OBJECTS = $(subst .c,.o,${SOURCES})
+OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
 TESTSRC = test.s
 TESTOBJ = $(subst .s,.o,${TESTSRC})
