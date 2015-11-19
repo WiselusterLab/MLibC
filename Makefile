@@ -6,7 +6,7 @@ DOSBOX = dosbox
 LD = gcc
 LDFLAGS = -nostdlib -m16 -Wl,-Ttext,0x0100,--oformat=binary
 RANLIB = ranlib
-SUBDIR = stdio
+SUBDIR = $(shell ls -d)
 
 .PHONY: all clean test
 
