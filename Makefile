@@ -6,8 +6,8 @@ LIBC = libc.a
 LIBM = libm.a
 LIBC_SUBDIR = crt stdio
 LIBM_SUBDIR = math
-LIBC_OBJECTS = $(foreach el,$(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c),$(subst .c,.o,${el}))
-LIBM_OBJECTS = $(foreach el,$(foreach el,${LIBM_SUBDIR},$(wildcard ${el}/*.c),$(subst .c,.o,${el}))
+LIBC_OBJECTS = $(foreach el,$(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c)),$(subst .c,.o,${el}))
+LIBM_OBJECTS = $(foreach el,$(foreach el,${LIBM_SUBDIR},$(wildcard ${el}/*.c)),$(subst .c,.o,${el}))
 
 .PHONY: all clean
 
