@@ -10,7 +10,7 @@ extern int putchar(int ch);
 extern int puts(const char *str);
 
 /* BIOS based I/O functions */
-extern void setvidattr(void);
+extern void setvidattr(int attr);
 extern int getvidattr(void);
 extern void clrscr(void);
 extern int getxy(void);
