@@ -1,43 +1,15 @@
-AR = ar
-CC = gcc
-CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-DOSBOX = dosbox
-INCLUDE = ${PWD}/../include
-LD = ${CC}
-LDFLAGS = -nostdlib -m16 -Wl,-Ttext,0x0100,--oformat=binary
-OBJCOPY = objcopy
-RANLIB = ranlib
-PWD = $(shell pwd)
+CC16 = ../cc16
 
-LIBRARY = lib$(shell basename ${PWD}).a
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
-TESTSRC = test.S
-TESTOBJ = $(subst .S,.o,${TESTSRC})
-TESTBIN = $(subst .S,.com,${TESTSRC})
-
-.PHONY: all clean test
+.PHONY: all clean
 
 all: ${LIBRARY}
 	
 
 clean:
-	rm -rf ${LIBRARY} ${OBJECTS} ${TESTOBJ} ${TESTBIN}
-
-test: all
-	${CC} ${CFLAGS} -c ${TESTSRC}
-	${LD} ${LDFLAGS} ${TESTOBJ} ${LIBRARY} -o ${TESTBIN}
-	${DOSBOX} ${TESTBIN}
-
-${LIBRARY}: ${OBJECTS}
-	${AR} rcu $@ $^
-	${RANLIB} $@
+	rm -rf ${OBJECTS}
 
 ${OBJECTS}: ${SOURCES}
-	${CC} ${CFLAGS} -c $^
-	for file in ${OBJECTS};\
-	do\
-		${OBJCOPY} -R.eh_frame $${file};\
-		${OBJCOPY} -R.comment $${file};\
-	done
+	${CC16} $^
