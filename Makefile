@@ -9,7 +9,7 @@ LIBM = libm.a
 LIBC_SUBDIR = crt stdio
 LIBM_SUBDIR = math
 LIBC_SOURCES = $(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c))
-LIBM_SOURCES = $(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c))
+LIBM_SOURCES = $(foreach el,${LIBM_SUBDIR},$(wildcard ${el}/*.c))
 LIBC_OBJECTS = $(foreach el,${LIBC_SOURCES},$(subst .c,.o,${el}))
 LIBM_OBJECTS = $(foreach el,${LIBM_SOURCES},$(subst .c,.o,${el}))
 
