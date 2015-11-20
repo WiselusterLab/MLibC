@@ -6,4 +6,14 @@ then
 fi
 
 ${CC} -nostdinc -std=gnu11 -I`dirname ${0}`/include -m16 -O3 ${@}
+
+for file in ${@};
+do
+	if [ -f ${file.%*}.o ];
+	then
+		objcopy -R.eh_frame ${file.%*}.o ${file.%*}.o
+		objcopy -R.comment ${file.%*}.o ${file.%*}.o
+	fi
+done
+
 exit ${?}
