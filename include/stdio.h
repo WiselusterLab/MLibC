@@ -17,7 +17,7 @@ extern void gotoxy(int x, int y);
 __END_DECLS
 
 /* BIOS video attribute data */
-extern int __mlibc_bios_video_attributes __MERGE;
+extern int __mlibc_bios_video_attributes;
 
 /* Header for BIOS video macros */
 #include <bios.h>
