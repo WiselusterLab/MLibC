@@ -13,10 +13,13 @@ LIBM_SOURCES = $(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c))
 LIBC_OBJECTS = $(foreach el,${LIBC_SOURCES},$(subst .c,.o,${el}))
 LIBM_OBJECTS = $(foreach el,${LIBM_SOURCES},$(subst .c,.o,${el}))
 
-.PHONY: all clean
+.PHONY: all all-dos clean
 
 all: ${LIBC} ${LIBM}
 	
+
+all-dos: 
+	${MAKE} CFLAGS+=-D__DOS__=1
 
 clean:
 	for dir in ${LIBC_SUBDIR} ${LIBM_SUBDIR};\
