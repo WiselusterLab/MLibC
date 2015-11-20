@@ -6,8 +6,8 @@
 _start:
 	call clrscr
 
-	pushl $Y
-	pushl $X
+	pushl $0x25
+	pushl $0x0A
 	call gotoxy
 	add $8, %esp
 
@@ -19,5 +19,3 @@ _start:
 
 msg:
 	.string "Hello, world!"
-	.equ X, 10
-	.equ Y, 10
