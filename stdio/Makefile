@@ -16,6 +16,6 @@ ${OBJECTS}: ${SOURCES}
 	${CC} ${CFLAGS} -c $^
 	for file in ${OBJECTS};\
 	do\
-		objcopy -R.eh_frame ${file} ${file};\
-		objcopy -R.comment ${file} ${file};\
+		objcopy -R.eh_frame $${file} $${file};\
+		objcopy -R.comment $${file} $${file};\
 	done
