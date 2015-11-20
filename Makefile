@@ -9,7 +9,7 @@ RMFLAGS = -rf
 
 LIBC = libc.a
 LIBM = libm.a
-LIBC_SUBDIR = crt stdio
+LIBC_SUBDIR = conio crt stdio
 LIBM_SUBDIR = math
 LIBC_SOURCES = $(foreach el,${LIBC_SUBDIR},$(wildcard ${el}/*.c))
 LIBM_SOURCES = $(foreach el,${LIBM_SUBDIR},$(wildcard ${el}/*.c))
