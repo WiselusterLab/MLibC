@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-word getxy(void)
+int getxy(void)
 {
-	word pos;
+	int pos;
 
 	__asm__ __volatile__
 	(
