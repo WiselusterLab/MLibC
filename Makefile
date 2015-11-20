@@ -1,21 +1,39 @@
-SUBDIR = $(shell ls -F | grep /$$)
+AR = ar
+ARFLAGS = rcu
+RANLIB = ranlib
 
-.PHONY: all clean test
+LIBC = libc.a
+LIBM = libm.a
+LIBC_SUBDIR = stdio
+LIBM_SUBDIR = math
 
-all: 
-	for dir in ${SUBDIR};\
-	do\
-		make -C $${dir} $@;\
-	done
+.PHONY: all clean objects
+
+all: objects
+	
 
 clean:
-	for dir in ${SUBDIR};\
+	for dir in ${LIBC_SUBDIR} ${LIBM_SUBDIR};\
 	do\
 		make -C $${dir} $@;\
 	done
 
-test: 
-	for dir in ${SUBDIR};\
+${LIBC}: ${LIBC_OBJECTS}
+	${AR} rcu $@ $^
+	${RANLIB} $@
+
+${LIBM}: ${LIBM_OBJECTS}
+	${AR} rcu $@ $^
+	${RANLIB} $@
+
+${LIBC_OBJECTS}: 
+	for dir in ${LIBC_SUBDIR};\
 	do\
-		make -C $${dir} $@;\
+		make -C $${dir} all;\
+	done
+
+${LIBM_OBJECTS}: 
+	for dir in ${LIBM_SUBDIR};\
+	do\
+		make -C $${dir} all;\
 	done
