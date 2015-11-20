@@ -8,6 +8,6 @@ void gotoxy(int x, int y)
 		"mov %0, %%dh\n"
 		"mov %1, %%dl\n"
 		"int $0x10\n"
-		:: "m"(x), "m"(y)
+		:: "b"(__mlibc_vidattr), "m"(x), "m"(y)
 	);
 }
