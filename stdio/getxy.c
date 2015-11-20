@@ -9,7 +9,7 @@ word getxy(void)
 		"mov $0x03, %%ah\n"
 		"int $0x10\n"
 		: "=d"(pos)
-		: "b"(__video_attributes)
+		: "b"(__mlibc_bios_video_attributes)
 	);
 
 	return pos;
