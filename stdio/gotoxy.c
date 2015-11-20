@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void gotoxy(byte x, byte y)
+void gotoxy(int x, int y)
 {
 	__asm__ __volatile__
 	(
