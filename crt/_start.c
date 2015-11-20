@@ -1,7 +1,10 @@
+#include <stdio.h>
+
 extern int main(void);
 
 void _start(void)
 {
+	setvidattr(BIOS_VIDEO_ATTRIB_DEFAULT);
 	main();
 #ifdef __DOS__
 	__asm __volatile__
