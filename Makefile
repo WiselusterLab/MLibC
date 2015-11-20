@@ -1,5 +1,8 @@
 AR = ar
 ARFLAGS = rcu
+CC = gcc
+CFLAGS = -nostdinc -std=gnu11 -I$(shell pwd)/include -m16 -O3
+OBJCOPY = objcopy
 RANLIB = ranlib
 RM = rm
 RMFLAGS = -rf
