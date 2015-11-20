@@ -5,14 +5,14 @@ then
 	CC=gcc
 fi
 
-${CC} -nostdinc -std=gnu11 -I`dirname ${0}`/include -m16 -O3 ${@}
-
+${CC} -nostdinc -std=gnu11 -I`dirname ${0}`/include -m16 -O3 -c ${@} &&\
 for file in ${@};
 do
-	if [ -f ${file.%*}.o ];
+	objfile=${file%.*}.o
+	if [ -f ${objfile} ];
 	then
-		objcopy -R.eh_frame ${file.%*}.o ${file.%*}.o
-		objcopy -R.comment ${file.%*}.o ${file.%*}.o
+		objcopy -R.eh_frame ${objfile} ${objfile}
+		objcopy -R.comment ${objfile} ${objfile}
 	fi
 done
 
