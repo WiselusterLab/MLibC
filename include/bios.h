@@ -1,6 +1,8 @@
 #ifndef _MLIBC_BIOS_H_INCLUDED_
 #define _MLIBC_BIOS_H_INCLUDED_ 1
 
+#include <mlibc.h>
+
 #define BIOS_VIDEO_POS(x, y) ((y << 0x08) | (x))
 #define BIOS_VIDEO_POS_DEFAULT BIOS_VIDEO_POS(BIOS_VIDEO_ROWS, BIOS_VIDEO_COLS)
 #define BIOS_VIDEO_ROWS 0x50
