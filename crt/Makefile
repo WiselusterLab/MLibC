@@ -1,5 +1,8 @@
 CC = gcc
 CFLAGS = -nostdinc -std=gnu11 -I../include -m16 -O3
+OBJCOPY = objcopy
+RM = rm
+RMFLAGS = -rf
 
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
@@ -16,6 +19,6 @@ ${OBJECTS}: ${SOURCES}
 	${CC} ${CFLAGS} -c $^
 	for file in ${OBJECTS};\
 	do\
-		objcopy -R.eh_frame $${file} $${file};\
-		objcopy -R.comment $${file} $${file};\
+		${OBJCOPY} -R.eh_frame $${file} $${file};\
+		${OBJCOPY} -R.comment $${file} $${file};\
 	done
