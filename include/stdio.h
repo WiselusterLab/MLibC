@@ -11,13 +11,13 @@ extern int puts(const char *str);
 
 /* Non-standard C I/O functions */
 extern void clrscr(void);
-extern word getxy(void);
-extern void gotoxy(byte x, byte y);
+extern int getxy(void);
+extern void gotoxy(int x, int y);
 
 __END_DECLS
 
 /* BIOS video attribute data */
-extern word __mlibc_bios_video_attributes __MERGE;
+extern int __mlibc_bios_video_attributes __MERGE;
 
 /* Header for BIOS video macros */
 #include <bios.h>
