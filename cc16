@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -n "${CC}" ];
+then
+	CC=gcc
+fi
+
+${CC} -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3 ${@}
+exit ${?}
