@@ -4,12 +4,13 @@ RANLIB = ranlib
 
 LIBC = libc.a
 LIBM = libm.a
-LIBC_SUBDIR = stdio
+LIBC_SUBDIR = crt stdio
 LIBM_SUBDIR = math
+LIBC_OBJECTS = $(foreach el,$(foreach el,${LIBC_SUBDIR} ${LIBM_SUBDIR},$(wildcard ${el}/*.c) $(wildcard ${el}/*.S)),$(subst .c,.o,${el}) $(subst .S,.o,${el}))
 
-.PHONY: all clean objects
+.PHONY: all clean
 
-all: objects
+all: ${LIBC} ${LIBM}
 	
 
 clean:
@@ -29,11 +30,11 @@ ${LIBM}: ${LIBM_OBJECTS}
 ${LIBC_OBJECTS}: 
 	for dir in ${LIBC_SUBDIR};\
 	do\
-		make -C $${dir} all;\
+		make -C $${dir};\
 	done
 
 ${LIBM_OBJECTS}: 
 	for dir in ${LIBM_SUBDIR};\
 	do\
-		make -C $${dir} all;\
+		make -C $${dir};\
 	done
