@@ -28,22 +28,18 @@ clean:
 	done
 	${RM} ${RMFLAGS} ${LIBC} ${LIBM}
 
-${LIBC}: ${LIBC_OBJECTS}
-	${AR} rcu $@ $^
-	${RANLIB} $@
-
-${LIBM}: ${LIBM_OBJECTS}
-	${AR} rcu $@ $^
-	${RANLIB} $@
-
-${LIBC_OBJECTS}: ${LIBC_SOURCES}
+${LIBC}: ${LIBC_SOURCES}
 	for dir in ${LIBC_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
 	done
+	${AR} rcu $@ ${LIBC_OBJECTS}
+	${RANLIB} $@
 
-${LIBM_OBJECTS}: ${LIBM_SOURCES}
+${LIBM}: ${LIBM_SOURCES}
 	for dir in ${LIBM_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
 	done
+	${AR} rcu $@ ${LIBM_OBJECTS}
+	${RANLIB} $@
