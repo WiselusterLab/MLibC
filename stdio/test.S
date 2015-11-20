@@ -4,12 +4,12 @@
 _start:
 	call clrscr
 
-	pushl $10
-	pushl $10
+	pushl $Y
+	pushl $X
 	call gotoxy
 	add $8, %esp
 
-	movb $0x1F, __video_attributes
+	movb $BIOS_COLOR(BIOS_COLOR_WHITE, BIOS_COLOR_BLUE), __mlibc_video_attributes
 	pushl $msg
 	call puts
 	add $4, %esp
@@ -17,3 +17,5 @@ _start:
 
 msg:
 	.string "Hello, world!"
+	.equ X, 10
+	.equ Y, 10
