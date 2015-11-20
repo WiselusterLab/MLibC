@@ -18,6 +18,8 @@ extern void gotoxy(int x, int y);
 
 __END_DECLS
 
+extern int __mlibc_vidattr;
+
 /* Header for BIOS video macros */
 #include <bios.h>
 
