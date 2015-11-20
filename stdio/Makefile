@@ -13,9 +13,9 @@ LIBRARY = lib$(shell basename ${PWD}).a
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
-TESTSRC = test.s
-TESTOBJ = $(subst .s,.o,${TESTSRC})
-TESTBIN = $(subst .s,.com,${TESTSRC})
+TESTSRC = test.S
+TESTOBJ = $(subst .S,.o,${TESTSRC})
+TESTBIN = $(subst .S,.com,${TESTSRC})
 
 .PHONY: all clean test
 
