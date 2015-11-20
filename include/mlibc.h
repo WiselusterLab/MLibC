@@ -1,4 +1,6 @@
-#ifndef __MLIBC_VERSION__
-#define __MLIBC_VERSION__ 201511L
+#ifndef __MLIBC__
+#define __MLIBC__ 1
 
-#endif /* _MLIBC_VERSION_ */
+#define __MLIBC_VERSION__ 201511
+
+#endif /* __MLIBC__ */
