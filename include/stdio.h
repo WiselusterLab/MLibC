@@ -5,7 +5,6 @@
 
 __BEGIN_DECLS
 
-/* Standard C I/O functions */
 extern int putchar(int ch);
 extern int puts(const char *str);
 
