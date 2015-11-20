@@ -1,3 +1,6 @@
+v0.0.2: 11/20/2015
+* A brand new upgrade!
+
 v0.0.1.1: 11/19/2015
 * Implemented clrscr(), getxy() and gotoxy()
 * Added video attribute support
