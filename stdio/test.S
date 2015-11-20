@@ -1,3 +1,5 @@
+#include <bios.h>
+
 .code16gcc
 	.global _start
 
