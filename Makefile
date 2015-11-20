@@ -19,7 +19,7 @@ all: ${LIBC} ${LIBM}
 	
 
 all-dos: 
-	${MAKE} CFLAGS+=-D__DOS__=1
+	${MAKE} -C . CFLAGS+=-D__DOS__=1
 
 clean:
 	for dir in ${LIBC_SUBDIR} ${LIBM_SUBDIR};\
