@@ -9,7 +9,7 @@ _start:
 	call gotoxy
 	add $8, %esp
 
-	movb $BIOS_COLOR(BIOS_COLOR_WHITE, BIOS_COLOR_BLUE), __mlibc_video_attributes
+	movb $BIOS_COLOR(BIOS_COLOR_WHITE, BIOS_COLOR_BLUE), __mlibc_bios_video_attributes
 	pushl $msg
 	call puts
 	add $4, %esp
