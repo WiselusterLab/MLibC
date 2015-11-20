@@ -9,15 +9,14 @@ __BEGIN_DECLS
 extern int putchar(int ch);
 extern int puts(const char *str);
 
-/* Non-standard C I/O functions */
+/* BIOS based I/O functions */
+extern void setvidattr(void);
+extern int getvidattr(void);
 extern void clrscr(void);
 extern int getxy(void);
 extern void gotoxy(int x, int y);
 
 __END_DECLS
-
-/* BIOS video attribute data */
-extern int __mlibc_bios_video_attributes;
 
 /* Header for BIOS video macros */
 #include <bios.h>
