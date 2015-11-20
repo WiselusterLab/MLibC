@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -nostdinc -std=gnu11 -I../include -m16 -O3
 
-SOURCES = $(wildcard *.c)
-OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
+SOURCES = $(wildcard *.S)
+OBJECTS = $(foreach el,${SOURCES},$(subst .S,.o,${el}))
 
 .PHONY: all clean
 
