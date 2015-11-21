@@ -5,7 +5,7 @@
 
 /* BIOS video attribute macros */
 #define BIOS_VIDEO_ATTRIB(page, color) ((((page) & 0xFF) << 0x08) | ((color) & 0xFF))
-#define BIOS_VIDEO_ATTRIB_DEFAULT BIOS_VIDEO_ATTRIB(BIOS_VIDEO_PAGE_CURRENT, BIOS_VIDEO_COLOR_DEFAULT)
+#define BIOS_VIDEO_ATTRIB_DEFAULT BIOS_VIDEO_ATTRIB(BIOS_VIDEO_PAGE_CURRENT, BIOS_VIDEO_COLOR_DEFAULT);
 
 /* BIOS video position macros */
 #define BIOS_VIDEO_POS(x, y) ((((y) & 0xFF) << 0x08) | ((x) & 0xFF))
