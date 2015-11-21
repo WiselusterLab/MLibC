@@ -6,7 +6,7 @@ LIBS=${LIBS--L. -lc -lm}
 
 for file in ${@};
 do
-	ext=${file#*.}
+	ext=${file##*.}
 	case $ext in
 	C);;
 	c);;
