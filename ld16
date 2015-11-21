@@ -8,13 +8,13 @@ for file in ${@};
 do
 	ext=${file##*.}
 	case $ext in
-	C);;
-	c);;
-	c++);;
-	cc);;
-	cpp);;
-	S);;
-	s) echo "${0}: error: unrecognized extension ${ext}." 1>&2; break;;
+	C) continue;;
+	c) continue;;
+	c++) continue;;
+	cc) continue;;
+	cpp) continue;;
+	S) continue;;
+	s) echo "${0}: error: unrecognized extension ${ext}." 1>&2; exit 1;;
 	esac
 done
 
