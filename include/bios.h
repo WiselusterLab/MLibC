@@ -4,11 +4,11 @@
 #include <mlibc.h>
 
 /* BIOS video attribute macros */
-#define BIOS_VIDEO_ATTRIB(page, color) (((page) << 0x08) | (color))
+#define BIOS_VIDEO_ATTRIB(page, color) ((((page) & 0xFF) << 0x08) | ((color) & 0xFF))
 #define BIOS_VIDEO_ATTRIB_DEFAULT BIOS_VIDEO_ATTRIB(BIOS_VIDEO_PAGE_CURRENT, BIOS_VIDEO_COLOR_DEFAULT)
 
 /* BIOS video position macros */
-#define BIOS_VIDEO_POS(x, y) (((y) << 0x08) | (x))
+#define BIOS_VIDEO_POS(x, y) ((((y) & 0xFF) << 0x08) | ((x) & 0xFF))
 #define BIOS_VIDEO_SCREEN_SIZE BIOS_VIDEO_POS(BIOS_VIDEO_POS_ROWS, BIOS_VIDEO_POS_COLS)
 #define BIOS_VIDEO_ROWS 0x50
 #define BIOS_VIDEO_COLS 0x19
@@ -17,7 +17,7 @@
 #define BIOS_VIDEO_PAGE_CURRENT 0x00
 
 /* BIOS video color macros */
-#define BIOS_VIDEO_COLOR(fore, back, shine) ((((shine) & 0x01) << 0x07) | (((back) & 0x07) << 0x04) | (fore))
+#define BIOS_VIDEO_COLOR(fore, back, shine) ((((shine) & 0x01) << 0x07) | (((back) & 0x07) << 0x04) | ((fore) & 0x0F))
 #define BIOS_VIDEO_COLOR_DEFAULT BIOS_VIDEO_COLOR(BIOS_VIDEO_LIGHT_GRAY, BIOS_VIDEO_BLACK, BIOS_VIDEO_NO_SHINE)
 #define BIOS_VIDEO_BLACK 0x00
 #define BIOS_VIDEO_BLUE 0x01
