@@ -4,18 +4,6 @@ CCLD=${CCLD-gcc}
 CCLDFLAGS=${CCLDFLAGS--nostdlib -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
 LIBS=${LIBS--L. -lc -lm}
 
-for file in ${@};
-do
-	ext=${file#*.}
-	case $ext in
-	o) ;;&
-	obj) ;;&
-	com) ;;
-	bin) ;;
-	*) echo "${0}: error: unrecognized extension .${ext}." 1>&2; exit 1;;
-	esac
-done
-
 ${CCLD} ${CCLDFLAGS} ${@} ${LIBS}
 
 exit ${?}
