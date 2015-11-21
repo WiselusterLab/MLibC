@@ -2,7 +2,7 @@
 
 LD=${LD-ld}
 LDFLAGS=${LDFLAGS--Ttext 0x0100 --oformat=binary}
-LIBS=${LIBS--L. -lc -lm}
+LIBS=${LIBS-libc.a libm.a}
 
 ${LD} ${LDFLAGS} ${@} ${LIBS}
 
