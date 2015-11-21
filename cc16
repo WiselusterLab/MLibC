@@ -7,7 +7,7 @@ OBJCOPY=${OBJCOPY-objcopy}
 ${CC} ${CFLAGS} -c ${@} &&\
 for file in ${@};
 do
-	obj=${file.%*}.o
+	obj=${file%.*}.o
 	${OBJCOPY} -R.eh_frame -R.comment ${obj} ${obj};
 done
 
