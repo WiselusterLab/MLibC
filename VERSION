@@ -1,5 +1,6 @@
 v0.0.2: 11/21/2015
 * A brand new upgrade!
+* Added cc16 and ld16 scripts for building binaries!
 
 v0.0.1.1: 11/19/2015
 * Implemented clrscr(), getxy() and gotoxy()
