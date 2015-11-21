@@ -1,10 +1,11 @@
 CC = gcc
 CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-HEADERS = $(wildcard ${INCLUDE}*.h)
-INCLUDE = $(shell pwd)/../include
 OBJCOPY = objcopy
 RM = rm
 RMFLAGS = -rf
+
+INCLUDE = ../include
+HEADERS = $(wildcard ${INCLUDE}*.h)
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
