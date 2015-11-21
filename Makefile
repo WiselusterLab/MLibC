@@ -1,14 +1,13 @@
 AR = ar
 ARFLAGS = rcu
 CC = gcc
-CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-INCLUDE = $(shell pwd)/include
-HEADERS = $(wildcard ${INCLUDE}/*.h)
+CFLAGS = -nostdinc -std=gnu11 -Iinclude -m16 -O3
 OBJCOPY = objcopy
 RANLIB = ranlib
 RM = rm
 RMFLAGS = -rf
 
+HEADERS = $(wildcard include/*.h)
 LIBC = libc.a
 LIBM = libm.a
 LIBC_SUBDIR = conio crt stdio
@@ -30,7 +29,7 @@ clean:
 	done
 	${RM} ${RMFLAGS} ${LIBC} ${LIBM}
 
-${LIBC}: ${LIBC_SOURCES} ${HEADERS}
+${LIBC}: ${HEADERS} ${LIBC_SOURCES}
 	for dir in ${LIBC_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
@@ -38,7 +37,7 @@ ${LIBC}: ${LIBC_SOURCES} ${HEADERS}
 	${AR} rcu $@ ${LIBC_OBJECTS}
 	${RANLIB} $@
 
-${LIBM}: ${LIBM_SOURCES} ${HEADERS}
+${LIBM}: ${HEADERS} ${LIBM_SOURCES} ${HEADERS}
 	for dir in ${LIBM_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
