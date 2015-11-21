@@ -1,8 +1,8 @@
 #!/bin/sh
 
-LD=${LD-ld}
-LDFLAGS=${LDFLAGS--melf32_x86_64 -Ttext 0x0100 --oformat=binary -L. -lc -lm}
+CCLD=${CCLD-gcc}
+CCLDFLAGS=${CCLDFLAGS--nostdlib -L. -lc -lm -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
 
-${LD} ${LDFLAGS} ${@}
+${CCLD} ${CCLDFLAGS} ${@}
 
 exit ${?}
