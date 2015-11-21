@@ -17,7 +17,7 @@
 #define BIOS_VIDEO_PAGE_CURRENT 0x00
 
 /* BIOS video color macros */
-#define BIOS_VIDEO_COLOR(fore, back, shine) (((shine & 0x01) << 0x07) | (((back) & 0x07) << 0x04)) | (fore))
+#define BIOS_VIDEO_COLOR(fore, back, shine) ((((shine) & 0x01) << 0x07) | (((back) & 0x07) << 0x04) | (fore))
 #define BIOS_VIDEO_COLOR_DEFAULT BIOS_VIDEO_COLOR(BIOS_VIDEO_LIGHT_GRAY, BIOS_VIDEO_BLACK, BIOS_VIDEO_NO_SHINE)
 #define BIOS_VIDEO_BLACK 0x00
 #define BIOS_VIDEO_BLUE 0x01
