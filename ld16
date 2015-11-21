@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CCLD=${CCLD-gcc}
-CCLDFLAGS=${CCLDFLAGS--nostdinc -Iinclude -nostdlib -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
+CCLDFLAGS=${CCLDFLAGS--nostdlib -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
 LIBS=${LIBS--L. -lc -lm}
 
 ${CCLD} ${CCLDFLAGS} ${@} ${LIBS}
