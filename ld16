@@ -1,9 +1,8 @@
 #!/bin/sh
 
-LD=${LD-gcc}
-LDFLAGS=${LDFLAGS--nostdlib -Wl,-Ttext,0x0100,--oformat=binary}
-LIBS=${LIBS-libc.a libm.a}
+CCLD=${LD-gcc}
+CCLDFLAGS=${LDFLAGS--nostdlib -m16 -O3 -Wl,-Ttext,0x0100,--oformat=binary -L. -lc -lm}
 
-${LD} ${LDFLAGS} ${@} ${LIBS}
+${CCLD} ${LDFLAGS} ${@} ${LIBS}
 
 exit ${?}
