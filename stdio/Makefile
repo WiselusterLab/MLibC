@@ -1,9 +1,10 @@
 CC = gcc
-CFLAGS = -nostdinc -std=gnu11 -I$(shell pwd)/../include -m16 -O3
+CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
+HEADERS = $(wildcard ${INCLUDE}*.h)
+INCLUDE = $(shell pwd)/../include
 OBJCOPY = objcopy
 RM = rm
 RMFLAGS = -rf
-
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
@@ -15,7 +16,7 @@ all: ${OBJECTS}
 clean:
 	rm -rf ${OBJECTS}
 
-${OBJECTS}: ${SOURCES}
+${OBJECTS}: ${HEADERS} ${SOURCES}
 	${CC} ${CFLAGS} -c $^
 	for file in ${OBJECTS};\
 	do\
