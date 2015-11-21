@@ -1,0 +1,8 @@
+#!/bin/sh
+
+LD=${LD-ld}
+LDFLAGS=${LDFLAGS--L. -lc -lm -Ttext 0x0100 --oformat=binary}
+
+${LD} ${LDFLAGS} ${@}
+
+exit ${?}
