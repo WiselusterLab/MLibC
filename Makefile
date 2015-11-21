@@ -1,7 +1,9 @@
 AR = ar
 ARFLAGS = rcu
 CC = gcc
-CFLAGS = -nostdinc -std=gnu11 -I$(shell pwd)/include -m16 -O3
+CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
+INCLUDE = $(shell pwd)/include
+HEADERS = $(wildcard ${INCLUDE}/*.h)
 OBJCOPY = objcopy
 RANLIB = ranlib
 RM = rm
@@ -28,7 +30,7 @@ clean:
 	done
 	${RM} ${RMFLAGS} ${LIBC} ${LIBM}
 
-${LIBC}: ${LIBC_SOURCES}
+${LIBC}: ${LIBC_SOURCES} ${HEADERS}
 	for dir in ${LIBC_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
@@ -36,7 +38,7 @@ ${LIBC}: ${LIBC_SOURCES}
 	${AR} rcu $@ ${LIBC_OBJECTS}
 	${RANLIB} $@
 
-${LIBM}: ${LIBM_SOURCES}
+${LIBM}: ${LIBM_SOURCES} ${HEADERS}
 	for dir in ${LIBM_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
