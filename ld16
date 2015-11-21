@@ -1,7 +1,7 @@
 #!/bin/sh
 
-LD=${LD-ld}
-LDFLAGS=${LDFLAGS--Ttext 0x0100 --oformat=binary}
+LD=${LD-gcc}
+LDFLAGS=${LDFLAGS--Wl,-Ttext,0x0100,--oformat=binary}
 LIBS=${LIBS-libc.a libm.a}
 
 ${LD} ${LDFLAGS} ${@} ${LIBS}
