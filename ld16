@@ -7,7 +7,7 @@ LIBS=${LIBS--L. -lc -lm}
 for file in ${@};
 do
 	ext=${file#.*}
-	if [ -f "${file}" -a "${ext}" != "o" ];
+	if [ "${ext}" = "c" -o "${ext}" = "s" ];
 	then
 		echo "${0}: error: unrecognized extension ${ext}." 1>&2
 	fi
