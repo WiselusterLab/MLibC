@@ -38,7 +38,7 @@ ${LIBC}: ${HEADERS} ${LIBC_SOURCES}
 	${AR} rcu $@ ${LIBC_OBJECTS}
 	${RANLIB} $@
 
-${LIBM}: ${HEADERS} ${LIBM_SOURCES} ${HEADERS}
+${LIBM}: ${HEADERS} ${LIBM_SOURCES}
 	for dir in ${LIBM_SUBDIR};\
 	do\
 		${MAKE} -C $${dir};\
