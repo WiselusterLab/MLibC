@@ -1,0 +1,13 @@
+#!/bin/sh
+
+CC=${CC-gcc}
+CFLAGS=${CFLAGS--nostdinc -std=gnu11 -I`pwd`/include -m16 -O3}
+OBJCOPY=${OBJCOPY-objcopy}
+
+${CC} ${CFLAGS} -c $^ &&\
+for file in $@;
+do
+		${OBJCOPY} -R.eh_frame -R.comment $${file} $${file};
+done
+
+exit ${?}
