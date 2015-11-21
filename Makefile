@@ -1,12 +1,13 @@
 AR = ar
 ARFLAGS = rcu
 CC = gcc
-CFLAGS = -nostdinc -std=gnu11 -Iinclude -m16 -O3
+CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
 OBJCOPY = objcopy
 RANLIB = ranlib
 RM = rm
 RMFLAGS = -rf
 
+INCLUDE = include
 HEADERS = $(wildcard include/*.h)
 LIBC = libc.a
 LIBM = libm.a
