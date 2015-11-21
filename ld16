@@ -3,6 +3,6 @@
 LD=${LD-ld}
 LDFLAGS=${LDFLAGS--Ttext 0x0100 --oformat=binary -L. -lc -lm}
 
-${CCLD} ${CCLDFLAGS} ${@}
+${LD} ${LDFLAGS} ${@}
 
 exit ${?}
