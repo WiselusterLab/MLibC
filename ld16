@@ -1,8 +1,9 @@
 #!/bin/sh
 
 CCLD=${CCLD-gcc}
-CCLDFLAGS=${CCLDFLAGS--nostdlib -L. -lc -lm -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
+CCLDFLAGS=${CCLDFLAGS--nostdlib -m16 -O3 -Ttext 0x0100 -Wl,--oformat=binary}
+LIBS=${LIBS--L. -lc -lm}
 
-${CCLD} ${CCLDFLAGS} ${@}
+${CCLD} ${CCLDFLAGS} ${@} ${LIBS}
 
 exit ${?}
