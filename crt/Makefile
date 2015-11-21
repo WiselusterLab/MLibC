@@ -18,7 +18,7 @@ clean:
 	rm -rf ${OBJECTS}
 
 ${OBJECTS}: ${HEADERS} ${SOURCES}
-	${CC} ${CFLAGS} -c $^
+	${CC} ${CFLAGS} -c ${SOURCES}
 	for file in ${OBJECTS};\
 	do\
 		${OBJCOPY} -R.eh_frame -R.comment $${file} $${file};\
