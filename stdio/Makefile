@@ -5,7 +5,7 @@ RM = rm
 RMFLAGS = -rf
 
 INCLUDE = ../include
-HEADERS = $(wildcard ${INCLUDE}*.h)
+HEADERS = $(wildcard ${INCLUDE}/*.h)
 SOURCES = $(wildcard *.c)
 OBJECTS = $(foreach el,${SOURCES},$(subst .c,.o,${el}))
 
