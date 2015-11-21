@@ -1,8 +1,9 @@
 #!/bin/sh
 
 LD=${LD-ld}
-LDFLAGS=${LDFLAGS--Ttext 0x0100 --oformat=binary -L. -lc -lm}
+LDFLAGS=${LDFLAGS--Ttext 0x0100 --oformat=binary}
+LIBS=${LIBS--L. -lc -lm}
 
-${LD} ${LDFLAGS} ${@}
+${LD} ${LDFLAGS} ${@} ${LIBS}
 
 exit ${?}
