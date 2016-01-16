@@ -1,6 +1,7 @@
-CC = gcc
+CC = ${CROSS_COMPILE}gcc
 CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-OBJCOPY = objcopy
+CROSS_COMPILE = 
+OBJCOPY = ${CROSS_COMPILE}objcopy
 RM = rm
 RMFLAGS = -rf
 
