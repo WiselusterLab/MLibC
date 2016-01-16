@@ -1,9 +1,10 @@
-AR = ar
+AR = ${CROSS_COMPILE}ar
 ARFLAGS = rcu
-CC = gcc
+CC = ${CROSS_COMPILE}gcc
 CFLAGS = -nostdinc -std=gnu11 -I${INCLUDE} -m16 -O3
-OBJCOPY = objcopy
-RANLIB = ranlib
+CROSS_COMPILE = 
+OBJCOPY = ${CROSS_COMPILE}objcopy
+RANLIB = ${CROSS_COMPILE}ranlib
 RM = rm
 RMFLAGS = -rf
 
